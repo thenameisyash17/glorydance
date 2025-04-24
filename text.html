@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestie Song Request 💖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1.question {
+      font-size: 2.5rem;
+      color: #ff4d88;
+      text-shadow: 0 0 10px #ff80bf, 0 0 20px #ff80bf;
+      margin-bottom: 20px;
+    }
+
+    img.main-gif {
+      width: 200px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .yes-btn {
+      background-color: #7fffd4;
+      color: #00695c;
+    }
+
+    .no-btn {
+      background-color: #ffb6c1;
+      color: #b71c1c;
+      position: absolute;
+    }
+
+    .yes-btn:hover {
+      background-color: #00e6b8;
+      transform: scale(1.1);
+    }
+
+    .final-gif {
+      display: none;
+      margin-top: 20px;
+      animation: popIn 1s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="question">Bestie, will you sing a song for me? 🎶</h1>
+    <img class="main-gif" src="https://media.tenor.com/sCeOHLbcBcUAAAAm/love.webp" alt="Love GIF">
+
+    <div class="buttons">
+      <button class="yes-btn">Yes 💖</button>
+      <button class="no-btn">No 🙈</button>
+    </div>
+
+    <div class="final-gif">
+      <img src="https://gifdb.com/images/high/cute-happy-peach-cheering-qg3kwr7hkw2pinka.gif" width="200" alt="Yay GIF">
+      <h1 style="color:#ff69b4;">Yay! You're the best! 🎉</h1>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.querySelector(".no-btn");
+    const yesBtn = document.querySelector(".yes-btn");
+    const finalGif = document.querySelector(".final-gif");
+    const question = document.querySelector(".question");
+    const mainGif = document.querySelector(".main-gif");
+    const buttons = document.querySelector(".buttons");
+
+    function moveNoBtn() {
+      const i = Math.floor(Math.random() * 300) - 150;
+      const j = Math.floor(Math.random() * 300) - 150;
+      noBtn.style.transform = `translate(${i}px, ${j}px)`;
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoBtn);
+    noBtn.addEventListener("click", moveNoBtn);
+
+    yesBtn.addEventListener("click", () => {
+      question.classList.add("hidden");
+      mainGif.classList.add("hidden");
+      buttons.classList.add("hidden");
+      finalGif.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
